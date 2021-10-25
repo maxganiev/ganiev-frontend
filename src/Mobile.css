@@ -1,0 +1,245 @@
+@media (min-width: 150px) and (max-width: 470px) {
+	.welcome {
+		top: 5%;
+		font-size: calc(1rem + 1vmin);
+	}
+
+	.welcome ul {
+		font-size: calc(0.5rem + 1vmin);
+		flex-direction: column;
+	}
+
+	.bio-img {
+		height: 15%;
+	}
+
+	.bio-descr {
+		margin-top: 4%;
+		height: 85%;
+		line-height: 1.3rem;
+	}
+
+	.bio-descr p {
+		font-size: calc(0.5rem + 1vmin);
+	}
+
+	.benefits .controls img {
+		height: 50%;
+	}
+
+	.controls {
+		top: 30%;
+	}
+
+	.slider {
+		width: 100%;
+	}
+
+	footer a {
+		margin-right: 4%;
+	}
+
+	/*project*/
+	.project {
+		overflow: hidden;
+		width: 100%;
+	}
+
+	.project h2 {
+		font-size: calc(0.5rem + 1vmin);
+		position: unset;
+		margin-bottom: 4%;
+	}
+
+	.preview-shell {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.preview {
+		transform: unset;
+		background-size: contain;
+		height: 40%;
+		width: 100%;
+	}
+
+	.preview:nth-child(2) {
+		transform: translateY(10%);
+	}
+
+	.preview:nth-child(3) {
+		transform: translateY(-10%);
+	}
+
+	.about {
+		height: 20%;
+		width: 100%;
+	}
+
+	.about .yt-iframe {
+		width: 80%;
+		height: 30%;
+	}
+
+	.project p {
+		font-size: calc(0.4rem + 1vmin);
+		line-height: 1.2rem;
+	}
+
+	.animation {
+		height: 10%;
+	}
+
+	.lighthouseRep,
+	.zoomedImg {
+		flex-direction: column;
+		overflow: scroll;
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
+		scrollbar-width: none; /* Firefox */
+	}
+
+	.lighthouseRep {
+		height: 25%;
+	}
+
+	.zoomedImg::-webkit-scrollbar {
+		display: none; /* Safari and Chrome */
+	}
+
+	.lighthouseRep::-webkit-scrollbar {
+		display: none; /* Safari and Chrome */
+	}
+
+	.lighthouseRep h2 {
+		top: 1% !important;
+	}
+
+	.zoomedImg {
+		overflow: scroll;
+	}
+
+	.zoomedImg > img {
+		transform: scale(1.6) translateX(15%) translateY(25%);
+	}
+
+	.zoomedImg > img:hover {
+		cursor: all-scroll;
+	}
+
+	.lighthouseRep-bio p {
+		line-height: 1.2rem;
+	}
+}
+
+@media (max-height: 420px) {
+	.nav-content {
+		border-radius: 0% 0% 0% 5%;
+	}
+
+	.nav-bar {
+		right: 1%;
+	}
+
+	.bio-shell {
+		height: 140vh;
+	}
+
+	.bio-img {
+		height: 15%;
+	}
+
+	.avatar {
+		height: 100%;
+	}
+
+	.bio-shell .bio-img h3 {
+		font-size: calc(0.6rem + 1vmin);
+	}
+
+	.bio-descr {
+		height: 85%;
+		margin-top: 5%;
+	}
+
+	.bio-descr p {
+		font-size: calc(0.4rem + 1vmin);
+		line-height: 1.3rem;
+	}
+
+	.benefit-description {
+		width: 70%;
+		height: 70%;
+		font-size: calc(0.4rem + 1vmin);
+		line-height: 1.7em;
+	}
+
+	.slider {
+		width: 80%;
+	}
+
+	/*project*/
+	.project h2 {
+		top: 0;
+		font-size: calc(0.5rem + 1vmin);
+	}
+
+	.preview:nth-child(2) {
+		transform: translateY(16%);
+	}
+
+	.preview:nth-child(3) {
+		transform: translateY(-10%);
+	}
+
+	.about {
+		height: 30%;
+	}
+
+	.about .yt-iframe {
+		width: 80%;
+		height: 30%;
+	}
+
+	.project p {
+		font-size: calc(0.4rem + 1vmin);
+		line-height: 1.2rem;
+	}
+
+	.animation {
+		height: 12%;
+	}
+
+	.lighthouseRep {
+		height: 25%;
+	}
+
+	.lighthouseRep-bio {
+		height: 40%;
+		font-size: 0.7rem;
+	}
+}
+
+@media only screen and (min-height: 1024px) and (max-height: 1366px) and (orientation: portrait) {
+	.welcome {
+		top: 15%;
+	}
+
+	.controls {
+		top: 20%;
+	}
+
+	.benefits .controls img {
+		height: 50%;
+	}
+
+	/*project*/
+	.project p {
+		line-height: 1.8rem;
+	}
+
+	.about .yt-iframe {
+		width: 80%;
+		height: 40%;
+	}
+}
