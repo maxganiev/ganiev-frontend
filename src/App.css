@@ -32,17 +32,13 @@ li {
 	list-style-type: none;
 }
 
-a {
+.nav-content a {
 	color: #000;
 	text-decoration: none;
 }
 
-a:not():visited,
+.nav-content a:not():visited,
 a:visited {
-	color: #000;
-}
-
-a {
 	color: #000;
 }
 
@@ -466,6 +462,21 @@ a {
 .project p {
 	line-height: 1.4rem;
 	padding: 0% 7% 0% 7%;
+}
+
+.project .about a {
+	color: #000;
+	text-decoration: none;
+}
+
+.project .about a:not():visited,
+a:visited {
+	color: #000;
+}
+
+.project .about a:hover {
+	text-decoration: underline;
+	transition: all 0.3s ease-in-out;
 }
 
 .yt-iframe {
