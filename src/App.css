@@ -272,6 +272,13 @@ a:visited {
 	top: 265vh;
 }
 
+.project-slider-wrapper h3 {
+	color: #fff;
+	position: absolute;
+	top: -20%;
+	text-align: center;
+}
+
 .projects-shell-slider {
 	position: absolute;
 	width: 100%;

@@ -58,6 +58,10 @@ const Projects = ({ scrollPos }) => {
 
 	return (
 		<div className='project-slider-wrapper'>
+			<h3 style={{ transform: `translateX(${document.documentElement.clientWidth / 2.2}px)` }}>
+				{' '}
+				My projects{' '}
+			</h3>
 			<Fragment>
 				<img
 					src={chevronLeft}
@@ -72,7 +76,6 @@ const Projects = ({ scrollPos }) => {
 					alt='slide right'
 				/>
 			</Fragment>
-
 			<div className='projects-shell-slider' id='projects' ref={projectsSlider_Ref}>
 				{projectsData.map((elem, index) => {
 					return (
