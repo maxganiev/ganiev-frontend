@@ -14,15 +14,7 @@ const Project = ({ match, setNavlist, scrollPos, setScale, scaleSetter }) => {
 		//fetching proper data from projectData array
 		setCurrentGallery(match.params.project);
 		//setting navlist
-		setNavlist([
-			'home',
-			'preview-shell',
-			'about',
-			'brief visualisation',
-			'stack',
-			'lighthouse report',
-			'send message',
-		]);
+		setNavlist(['home', 'preview-shell', 'about', 'brief visualisation', 'stack', 'lighthouse report', 'send message']);
 
 		//setting animation timer depending on No of slides available for current project page
 		projectsData.forEach((el) => {
@@ -35,11 +27,7 @@ const Project = ({ match, setNavlist, scrollPos, setScale, scaleSetter }) => {
 		//set scale by adjusting denominator and factor for form-wrapper transform (Ajax component); init values of scaleSetter obj are null, so the condition above tells React to update component only while scalleSetter values are null (which means only once);
 		//while navigating between project page and home, scaleSetter value is remembered so we need to manually re-set it
 		Object.values(scaleSetter.scaleSetter).some((val, index, arr) =>
-			val === null
-				? setScale({ d: 3.6, f: 3 })
-				: arr[0] === 2.8 && arr[1] === 2
-				? setScale({ d: 3.6, f: 3 })
-				: null
+			val === null ? setScale({ d: 3.6, f: 3 }) : arr[0] === 2.8 && arr[1] === 2 ? setScale({ d: 3.6, f: 3 }) : null
 		);
 		// eslint-disable-next-line
 	}, [scaleSetter]);
@@ -157,11 +145,11 @@ const Project = ({ match, setNavlist, scrollPos, setScale, scaleSetter }) => {
 
 	//array of components, id == <a> innerHTML
 	const links = [
-		{ id: 'MDN', link: <Mdn key='customKey0' /> },
+		// { id: 'MDN', link: <Mdn key='customKey0' /> },
 		{ id: 'OOP', link: <Oop key='customKey1' /> },
-		{ id: 'TraversyMedia', link: <TraversyMedia key='customKey2' /> },
+		// { id: 'TraversyMedia', link: <TraversyMedia key='customKey2' /> },
 		{ id: 'APIs', link: <Api key='customKey3' /> },
-		{ id: 'CRUD', link: <Crud key='customKey4' /> },
+		// { id: 'CRUD', link: <Crud key='customKey4' /> },
 	];
 
 	useEffect(() => {
@@ -175,9 +163,7 @@ const Project = ({ match, setNavlist, scrollPos, setScale, scaleSetter }) => {
 				//iterating through arrays of words and links to replace regular strings with <a> component where necessary; we also remove all punctuation from words we want to replace with <a> components
 				words.forEach((word) =>
 					links.forEach((link) =>
-						link.id === word.replace(regex, '')
-							? words.splice(words.indexOf(word), 1, link.link)
-							: word
+						link.id === word.replace(regex, '') ? words.splice(words.indexOf(word), 1, link.link) : word
 					)
 				);
 
@@ -194,38 +180,17 @@ const Project = ({ match, setNavlist, scrollPos, setScale, scaleSetter }) => {
 	return projectsData.map((project) => {
 		const {
 			id,
-			data: {
-				projectName,
-				bgImg,
-				animationArr,
-				stackKit,
-				stackKitBgColor,
-				lighthouseRepImgSrc,
-				lighthouseRepBio,
-				link,
-			},
+			data: { projectName, bgImg, animationArr, stackKit, stackKitBgColor, lighthouseRepImgSrc, lighthouseRepBio, link },
 		} = project;
 
 		return (
 			id === currentGallery && (
 				<div key={id} className='project'>
-					<div
-						className='preview-shell'
-						id='preview-shell'
-						style={{ opacity: opacity, transform: `scale(${scale})` }}
-					>
+					<div className='preview-shell' id='preview-shell' style={{ opacity: opacity, transform: `scale(${scale})` }}>
 						<h2>{projectName} </h2>
-						<div
-							className='preview'
-							style={{ backgroundImage: `url(${bgImg[0]})` }}
-						></div>{' '}
+						<div className='preview' style={{ backgroundImage: `url(${bgImg[0]})` }}></div>{' '}
 						<div className='preview' style={{ backgroundImage: `url(${bgImg[1]})` }}>
-							<a
-								href={link}
-								target='_blank'
-								rel='noreferrer'
-								className='slider-select'
-							>
+							<a href={link} target='_blank' rel='noreferrer' className='slider-select'>
 								{' '}
 							</a>
 						</div>
@@ -237,28 +202,16 @@ const Project = ({ match, setNavlist, scrollPos, setScale, scaleSetter }) => {
 						{id === 'slider-6' && iframeLoaded && <YoutubeFrame />}
 					</div>
 
-					<div
-						className='animation animation-hidden'
-						id='brief visualisation'
-						ref={animationRef}
-					>
+					<div className='animation animation-hidden' id='brief visualisation' ref={animationRef}>
 						<h2>Preview</h2>
-						<img
-							src={animationArr[i]}
-							alt='animation goes here...'
-							className='anim-img'
-						/>
+						<img src={animationArr[i]} alt='animation goes here...' className='anim-img' />
 					</div>
 
 					<div className='stackKit' id='stack' ref={stackKitRef}>
 						<h2>Stack</h2>
 						{stackKit.map((el, index) => {
 							return (
-								<div
-									key={el}
-									className='projects'
-									style={{ backgroundColor: stackKitBgColor[index] }}
-								>
+								<div key={el} className='projects' style={{ backgroundColor: stackKitBgColor[index] }}>
 									<p>{el}</p>
 								</div>
 							);
@@ -270,14 +223,10 @@ const Project = ({ match, setNavlist, scrollPos, setScale, scaleSetter }) => {
 							className={lighthouseRepClassName}
 							onClick={(e) => {
 								setLighthouseRepClassName(
-									lighthouseRepClassName === 'lighthouseRep-img'
-										? 'zoomedImg'
-										: 'lighthouseRep-img'
+									lighthouseRepClassName === 'lighthouseRep-img' ? 'zoomedImg' : 'lighthouseRep-img'
 								);
 								lighthouseRepBioRef.current.style.visibility =
-									lighthouseRepClassName === 'lighthouseRep-img'
-										? 'hidden'
-										: 'visible';
+									lighthouseRepClassName === 'lighthouseRep-img' ? 'hidden' : 'visible';
 							}}
 						>
 							<img src={lighthouseRepImgSrc} alt='lighthouse report...' />
@@ -315,21 +264,16 @@ Project.propTypes = {
 export default connect(mapStateToProps, { setNavlist, setScale })(Project);
 
 //jsx links to replace piece of text they refer to
-const Mdn = () => {
-	return (
-		<Fragment>
-			<a
-				href='https://developer.mozilla.org/ru/'
-				target='_blank'
-				rel='noreferrer'
-				style={{ textDecoration: 'underline' }}
-			>
-				MDN
-			</a>
-			&nbsp;
-		</Fragment>
-	);
-};
+// const Mdn = () => {
+// 	return (
+// 		<Fragment>
+// 			<a href='https://developer.mozilla.org/ru/' target='_blank' rel='noreferrer' style={{ textDecoration: 'underline' }}>
+// 				MDN
+// 			</a>
+// 			&nbsp;
+// 		</Fragment>
+// 	);
+// };
 
 const Oop = () => {
 	return (
@@ -347,31 +291,21 @@ const Oop = () => {
 	);
 };
 
-const TraversyMedia = () => {
-	return (
-		<Fragment>
-			<a
-				href='https://www.traversymedia.com/'
-				target='_blank'
-				rel='noreferrer'
-				style={{ textDecoration: 'underline' }}
-			>
-				TraversyMedia
-			</a>
-			&nbsp;
-		</Fragment>
-	);
-};
+// const TraversyMedia = () => {
+// 	return (
+// 		<Fragment>
+// 			<a href='https://www.traversymedia.com/' target='_blank' rel='noreferrer' style={{ textDecoration: 'underline' }}>
+// 				TraversyMedia
+// 			</a>
+// 			&nbsp;
+// 		</Fragment>
+// 	);
+// };
 
 const Api = () => {
 	return (
 		<Fragment>
-			<a
-				href='https://en.wikipedia.org/wiki/API'
-				target='_blank'
-				rel='noreferrer'
-				style={{ textDecoration: 'underline' }}
-			>
+			<a href='https://en.wikipedia.org/wiki/API' target='_blank' rel='noreferrer' style={{ textDecoration: 'underline' }}>
 				APIs
 			</a>
 			&nbsp;
@@ -379,18 +313,18 @@ const Api = () => {
 	);
 };
 
-const Crud = () => {
-	return (
-		<Fragment>
-			<a
-				href='https://en.wikipedia.org/wiki/Create,_read,_update_and_delete'
-				target='_blank'
-				rel='noreferrer'
-				style={{ textDecoration: 'underline' }}
-			>
-				CRUD
-			</a>
-			&nbsp;
-		</Fragment>
-	);
-};
+// const Crud = () => {
+// 	return (
+// 		<Fragment>
+// 			<a
+// 				href='https://en.wikipedia.org/wiki/Create,_read,_update_and_delete'
+// 				target='_blank'
+// 				rel='noreferrer'
+// 				style={{ textDecoration: 'underline' }}
+// 			>
+// 				CRUD
+// 			</a>
+// 			&nbsp;
+// 		</Fragment>
+// 	);
+// };

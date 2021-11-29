@@ -5,20 +5,8 @@ import { setScrollPos } from '../../actions/scrollerAction';
 import { setWindowEventsArray } from '../../actions/globalEventHandlerAction';
 import { callWindowEventHandler } from '../../actions/globalEventHandlerAction';
 
-const Scroller = ({
-	scrollPos,
-	setScrollPos,
-	setWindowEventsArray,
-	arrayOfFunctions,
-	callWindowEventHandler,
-}) => {
-	const [scrollerRad, setScrollerRad] = useState(
-		document.documentElement.clientWidth < 500
-			? document.documentElement.clientWidth / 7
-			: document.documentElement.clientWidth > 500 && document.documentElement.clientWidth < 1100
-			? document.documentElement.clientWidth / 16
-			: document.documentElement.clientWidth / 35
-	);
+const Scroller = ({ scrollPos, setScrollPos, setWindowEventsArray, arrayOfFunctions, callWindowEventHandler }) => {
+	// const [scrollerRad, setScrollerRad] = useState(40);
 	const [clientWidth, setClientWidth] = useState(document.documentElement.clientWidth);
 
 	const canvasRef = useRef(null);
@@ -31,23 +19,20 @@ const Scroller = ({
 
 		ctx.fillStyle = '#fff';
 		ctx.beginPath();
-		ctx.arc(scrollerRad + 10, scrollerRad + 10, scrollerRad, 0, 180 * (Math.PI / 90), true);
+		ctx.arc(50, 50, 40, 0, 180 * (Math.PI / 90), true);
 		ctx.fill();
 		ctx.closePath();
 
 		const startAngle =
-			(scrollPos /
-				(document.documentElement.scrollHeight - document.documentElement.clientHeight)) *
-				180 *
-				(Math.PI / 90) -
+			(scrollPos / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 180 * (Math.PI / 90) -
 			Math.PI / 2;
 
 		const endAngle = 0 - Math.PI / 2;
 
 		ctx.strokeStyle = '#000';
 		ctx.beginPath();
-		ctx.lineWidth = 5;
-		ctx.arc(scrollerRad + 10, scrollerRad + 10, scrollerRad, startAngle, endAngle, true);
+		ctx.lineWidth = 4;
+		ctx.arc(50, 50, 40, startAngle, endAngle, true);
 		ctx.stroke();
 		ctx.closePath();
 	};
@@ -66,14 +51,7 @@ const Scroller = ({
 			{
 				type: 'resize',
 				callback: () => {
-					setScrollerRad(
-						document.documentElement.clientWidth < 500
-							? document.documentElement.clientWidth / 7
-							: document.documentElement.clientWidth > 500 &&
-							  document.documentElement.clientWidth < 1100
-							? document.documentElement.clientWidth / 16
-							: document.documentElement.clientWidth / 35
-					);
+					//setScrollerRad(40);
 					setClientWidth(document.documentElement.clientWidth);
 				},
 			},
@@ -109,7 +87,7 @@ const Scroller = ({
 			drawScroller();
 		}, 100);
 		// eslint-disable-next-line
-	}, [scrollPos, clientWidth, scrollerRad]);
+	}, [scrollPos, clientWidth]);
 
 	return <canvas className='scroller' ref={canvasRef}></canvas>;
 };
@@ -127,6 +105,4 @@ const mapStateToProps = (state) => ({
 	arrayOfFunctions: state.globalEventHandlerReducer.arrayOfFunctions,
 });
 
-export default connect(mapStateToProps, { setScrollPos, setWindowEventsArray, callWindowEventHandler })(
-	Scroller
-);
+export default connect(mapStateToProps, { setScrollPos, setWindowEventsArray, callWindowEventHandler })(Scroller);
