@@ -1,0 +1,4 @@
+master
+projectsRev
+
+the site is currently deployed with projectsRev branch

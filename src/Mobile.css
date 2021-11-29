@@ -32,7 +32,14 @@
 	}
 
 	.slider {
+		background-size: cover;
+	}
+
+	.slider:nth-child(2) {
+		left: 0;
+		z-index: 2;
 		width: 100%;
+		transform: none;
 	}
 
 	footer a {
@@ -172,6 +179,10 @@
 		height: 70%;
 		font-size: calc(0.4rem + 1vmin);
 		line-height: 1.7em;
+	}
+
+	.benefit-description .attention-note::after {
+		font-size: calc(0.15rem + 1vmin);
 	}
 
 	.slider {
