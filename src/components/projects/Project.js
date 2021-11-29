@@ -147,7 +147,7 @@ const Project = ({ match, setNavlist, scrollPos, setScale, scaleSetter }) => {
 	const links = [
 		// { id: 'MDN', link: <Mdn key='customKey0' /> },
 		{ id: 'OOP', link: <Oop key='customKey1' /> },
-		// { id: 'TraversyMedia', link: <TraversyMedia key='customKey2' /> },
+		{ id: 'TraversyMedia', link: <TraversyMedia key='customKey2' /> },
 		{ id: 'APIs', link: <Api key='customKey3' /> },
 		// { id: 'CRUD', link: <Crud key='customKey4' /> },
 	];
@@ -291,16 +291,16 @@ const Oop = () => {
 	);
 };
 
-// const TraversyMedia = () => {
-// 	return (
-// 		<Fragment>
-// 			<a href='https://www.traversymedia.com/' target='_blank' rel='noreferrer' style={{ textDecoration: 'underline' }}>
-// 				TraversyMedia
-// 			</a>
-// 			&nbsp;
-// 		</Fragment>
-// 	);
-// };
+const TraversyMedia = () => {
+	return (
+		<Fragment>
+			<a href='https://www.traversymedia.com/' target='_blank' rel='noreferrer' style={{ textDecoration: 'underline' }}>
+				TraversyMedia
+			</a>
+			&nbsp;
+		</Fragment>
+	);
+};
 
 const Api = () => {
 	return (
